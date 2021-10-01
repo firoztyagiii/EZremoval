@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;500&family=Work+Sans&display=swap");
+
+/* font-family: 'Barlow', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-family: "Work Sans", sans-serif; */
+  font-family: "Barlow", sans-serif;
+  color: #4d4d4d;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 3rem 0rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.089);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 1.8rem;
+}
+
+.list {
+  display: flex;
+  gap: 2rem;
+}
+
+.list-item {
+  list-style: none;
+}
+
+.list-item__link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* upload section-----------------
+*/
+
+.upload {
+  padding: 4rem 0rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+.hero-title {
+  font-weight: 500;
+  color: #383838;
+  font-size: 3.5rem;
+  /* margin-bottom: 3rem; */
+}
+
+.hero-desc {
+  margin: 2rem;
+  font-size: 2rem;
+}
+
+.hero-desc span {
+  color: dodgerblue;
+}
+
+.upload-area {
+  display: inline-block;
+  border: 2px dotted dodgerblue;
+  padding: 3rem 5rem;
+  border-radius: 1rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid dodgerblue;
+  display: inline-block;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+}
+
+.supported-format {
+  font-size: 0.6rem;
+  font-weight: bold;
+}
