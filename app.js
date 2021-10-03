@@ -8,11 +8,15 @@ dotenv.config({
 
 const app = express();
 app.use(express.static("public"));
+app.use(express.static("uploads"));
 
 app.use(cors());
 
-const backgroundController = require("./routes/backgroundRemovalRoutes");
+const backgroundRemovingRoute = require("./routes/backgroundRemovalRoutes");
+const downloadRoute = require("./routes/downloadRoute");
 
-app.use(backgroundController);
+app.use(backgroundRemovingRoute);
+
+app.use("/v", downloadRoute);
 
 module.exports = app;

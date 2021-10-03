@@ -31,7 +31,7 @@ exports.postImage = async (req, res, next) => {
 
     const img = await Image.create({
       link: hash,
-      path: `${req.file.destination}\-removed-${req.file.filename}`,
+      path: `/uploads/removed-${req.file.filename}`,
     });
 
     res.status(200).json({
