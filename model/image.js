@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const mongoose = require("mongoose");
 
 const imageSchema = new mongoose.Schema({
@@ -13,12 +14,11 @@ const imageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  downloads: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
 });
+
+imageSchema.statics.hash = function (string) {
+  return crypto.createHash("md5").update(string).digest("hex");
+};
 
 const Image = mongoose.model("image", imageSchema);
 

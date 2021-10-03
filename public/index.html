@@ -12,29 +12,33 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
-    <script
-      src="./script/controller/controller.js"
-      type="module"
-      defer
-    ></script>
+    <script src="./script/script.js" defer></script>
   </head>
   <body>
-    <div class="bg">
+    <div class="loading-bg loading-hidden">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="bg hidden">
       <ul class="bglist">
         <li class="bglist-item">
-          <a href="" class="bglist-item__link">Resize</a>
-        </li>
-        <li class="bg list-item">
-          <a href="" class="bglist-item__link">API</a>
+          <a href="#">Resize</a>
         </li>
         <li class="bglist-item">
-          <a href="" class="bglist-item__link">Features</a>
+          <a href="#">API</a>
         </li>
         <li class="bglist-item">
-          <a href="" class="bglist-item__link">Login</a>
+          <a href="#">Features</a>
         </li>
         <li class="bglist-item">
-          <a href="" class="bglist-item__link">Signup</a>
+          <a href="#">Login</a>
+        </li>
+        <li class="bglist-item">
+          <a href="#">Signup</a>
         </li>
       </ul>
     </div>
@@ -72,16 +76,21 @@
           <h1 class="hero-title">Remove Image Background Fast</h1>
           <p class="hero-desc">Automatically And <span>Free</span></p>
           <div class="upload-area">
-            <form action="" method="POST">
+            <form novalidate>
               <label for="file-upload" class="custom-file-upload">
-                Upload Image
+                Select Image
               </label>
-              <input id="file-upload" type="file" />
+              <input id="file-upload" type="file" name="image" />
               <p class="supported-format">Supported formats .jpg, png, jpeg</p>
+              <button class="upload-btn" type="button">Upload</button>
             </form>
           </div>
         </div>
       </section>
+      <div class="link-box hide-link">
+        <input type="text" class="link" value="" />
+        <span class="copy-link"><i class="fas fa-copy"></i> </span>
+      </div>
     </div>
   </body>
 </html>
