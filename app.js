@@ -9,6 +9,8 @@ dotenv.config({
 const app = express();
 app.use(express.static("public"));
 app.use(express.static("uploads"));
+app.set("view engine", "ejs");
+app.set("views", "view");
 
 app.use(cors());
 

@@ -14,10 +14,21 @@ const storage = multer.diskStorage({
   },
 });
 
+const bufferStorage = multer.memoryStorage();
+
 // const storage = multer.memoryStorage();
 
 const upload = multer({ storage: storage });
+const compress = multer({ storage: bufferStorage });
 
-router.route("/").post(upload.single("image"), backgroundController.postImage);
+router
+  .route("/")
+  .post(upload.single("image"), backgroundController.postImage)
+  .get(backgroundController.getIndex);
+
+router
+  .route("/resize")
+  .get(backgroundController.getResize)
+  .post(compress.single("image"), backgroundController.compressImage);
 
 module.exports = router;

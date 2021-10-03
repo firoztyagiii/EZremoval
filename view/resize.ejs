@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZremoval | Resize</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <script src="./script/script.js" defer></script>
+  </head>
+  <body>
+    <div class="loading-bg loading-hidden">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="bg hidden">
+      <ul class="bglist">
+        <li class="bglist-item">
+          <a href="#">Resize</a>
+        </li>
+        <li class="bglist-item">
+          <a href="#">API</a>
+        </li>
+        <li class="bglist-item">
+          <a href="#">Features</a>
+        </li>
+        <li class="bglist-item">
+          <a href="#">Login</a>
+        </li>
+        <li class="bglist-item">
+          <a href="#">Signup</a>
+        </li>
+      </ul>
+    </div>
+    <div class="container">
+      <header class="header">
+        <nav class="nav">
+          <a href="/" class="logo">EZremoval</a>
+          <ul class="list">
+            <li class="list-item">
+              <a href="/resize" class="list-item__link">Resize</a>
+            </li>
+            <li class="list-item">
+              <a href="" class="list-item__link">API</a>
+            </li>
+            <li class="list-item">
+              <a href="" class="list-item__link">Features</a>
+            </li>
+            <li class="list-item">
+              <a href="" class="list-item__link">Login</a>
+            </li>
+            <li class="list-item">
+              <a href="" class="list-item__link">Signup</a>
+            </li>
+          </ul>
+          <span class="bar">
+            <i class="fas fa-bars"></i>
+          </span>
+        </nav>
+      </header>
+      <section class="upload">
+        <div class="left">
+          <img class="hero-img" src="./img/compress-image.png" alt="" />
+        </div>
+        <div class="right">
+          <h1 class="hero-title">Compress Image</h1>
+          <p class="hero-desc">Automatically And <span>Free</span></p>
+          <div class="upload-area">
+            <form class="form" novalidate>
+              <label for="file-upload" class="custom-file-upload">
+                Select Image
+              </label>
+              <input id="file-upload" type="file" name="image" />
+              <input type="range" class="input-range" />
+              <input type="text" class="range-text" value="50" />
+              <p class="supported-format">Supported formats .jpg, png, jpeg</p>
+              <button class="upload-compress-img" type="button">Upload</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <div class="link-box hide-link">
+        <input type="text" class="link" value="" />
+        <span class="copy-link"><i class="fas fa-copy"></i> </span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -194,7 +194,8 @@ input[type="file"] {
   margin-bottom: 1.5rem;
 }
 
-.upload-btn {
+.upload-btn,
+.upload-compress-img {
   display: inline-block;
   background-color: #fff;
   border: 1px solid dodgerblue;
@@ -204,7 +205,8 @@ input[type="file"] {
 }
 
 .custom-file-upload:hover,
-.upload-btn:hover {
+.upload-btn:hover,
+.upload-compress-img:hover {
   background-color: dodgerblue;
   color: white;
   cursor: pointer;
@@ -341,4 +343,9 @@ input[type="file"] {
 
 .hide-link {
   display: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
 }

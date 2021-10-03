@@ -2,6 +2,7 @@ const { removeBackgroundFromImageFile } = require("remove.bg");
 const path = require("path");
 const fs = require("fs");
 const Image = require("../model/image");
+const sharp = require("sharp");
 
 exports.postImage = async (req, res, next) => {
   try {
@@ -38,6 +39,33 @@ exports.postImage = async (req, res, next) => {
       status: "success",
       path: img.link,
     });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.getIndex = (req, res, next) => {
+  res.render("index");
+};
+
+exports.getResize = (req, res, next) => {
+  res.render("resize");
+};
+
+exports.compressImage = async (req, res, next) => {
+  try {
+    const quality = 100 - req.body.quality * 1;
+    console.log(quality);
+    const buffer = await sharp(req.file.buffer)
+      .jpeg({ mozjpeg: true, quality: +quality })
+      .toBuffer();
+    fs.writeFileSync(
+      path.join(
+        __dirname,
+        `../public/uploads/compressed-${Date.now()}-${req.file.originalname}`
+      ),
+      buffer
+    );
   } catch (err) {
     console.log(err);
   }
