@@ -55,17 +55,32 @@ exports.getResize = (req, res, next) => {
 exports.compressImage = async (req, res, next) => {
   try {
     const quality = 100 - req.body.quality * 1;
-    console.log(quality);
     const buffer = await sharp(req.file.buffer)
       .jpeg({ mozjpeg: true, quality: +quality })
       .toBuffer();
+
+    const randomHashForImg = Image.hash(Date.now().toString());
+
+    const imgFileName = `${Date.now()}-${randomHashForImg}-${
+      req.file.originalname
+    }`;
+
     fs.writeFileSync(
-      path.join(
-        __dirname,
-        `../public/uploads/compressed-${Date.now()}-${req.file.originalname}`
-      ),
+      path.join(__dirname, `../public/uploads/compressed-${imgFileName}`),
       buffer
     );
+
+    const hash = Image.hash(req.file.originalname);
+
+    const img = await Image.create({
+      link: hash,
+      path: `/uploads/compressed-${imgFileName}`,
+    });
+
+    res.status(200).json({
+      status: "success",
+      path: img.link,
+    });
   } catch (err) {
     console.log(err);
   }

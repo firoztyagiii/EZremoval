@@ -74,5 +74,8 @@ if (compressImageBtn) {
     console.log(response);
     loadingBG.classList.add("loading-hidden");
     linkBox.classList.remove("hide-link");
+    document.querySelector(
+      ".link"
+    ).value = `http://localhost:3000/v/${response.path}`;
   });
 }
