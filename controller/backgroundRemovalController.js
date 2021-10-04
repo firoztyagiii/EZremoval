@@ -48,8 +48,8 @@ exports.getIndex = (req, res, next) => {
   res.render("index");
 };
 
-exports.getResize = (req, res, next) => {
-  res.render("resize");
+exports.getCompress = (req, res, next) => {
+  res.render("compress");
 };
 
 exports.compressImage = async (req, res, next) => {

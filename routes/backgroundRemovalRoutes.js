@@ -27,8 +27,8 @@ router
   .get(backgroundController.getIndex);
 
 router
-  .route("/resize")
-  .get(backgroundController.getResize)
+  .route("/compress")
+  .get(backgroundController.getCompress)
   .post(compress.single("image"), backgroundController.compressImage);
 
 module.exports = router;
