@@ -31,7 +31,9 @@ router
   .get(backgroundController.getCompress)
   .post(compress.single("image"), backgroundController.compressImage);
 
-router.route("/resize").get(backgroundController.getResize);
-// .post(compress.single("image"), backgroundController.compressImage);
+router
+  .route("/resize")
+  .get(backgroundController.getResize)
+  .post(compress.single("image"), backgroundController.resizeImage);
 
 module.exports = router;

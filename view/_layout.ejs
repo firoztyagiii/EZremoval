@@ -97,7 +97,24 @@
               <button class="upload-compress-img" type="button">Upload</button>
             </form>
             <% } else if ( link === "resize") { %>
-            <h1>resize page</h1>
+            <form class="form" novalidate>
+              <label for="file-upload" class="custom-file-upload">
+                Select Image
+              </label>
+              <input id="file-upload" type="file" name="image" />
+              <div class="resolution">
+                <input type="text" class="width" name="width" placeholder="0" />
+                <span>X</span>
+                <input
+                  type="text"
+                  class="height"
+                  name="height"
+                  placeholder="0"
+                />
+              </div>
+              <p class="supported-format">Supported formats .jpg, png, jpeg</p>
+              <button class="upload-resize-img" type="button">Upload</button>
+            </form>
             <% } %>
           </div>
         </div>

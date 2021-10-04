@@ -195,7 +195,8 @@ input[type="file"] {
 }
 
 .upload-btn,
-.upload-compress-img {
+.upload-compress-img,
+.upload-resize-img {
   display: inline-block;
   background-color: #fff;
   border: 1px solid dodgerblue;
@@ -206,7 +207,8 @@ input[type="file"] {
 
 .custom-file-upload:hover,
 .upload-btn:hover,
-.upload-compress-img:hover {
+.upload-compress-img:hover,
+.upload-resize-img:hover {
   background-color: dodgerblue;
   color: white;
   cursor: pointer;
@@ -348,4 +350,23 @@ input[type="file"] {
 .form {
   display: flex;
   flex-direction: column;
+}
+
+.resolution {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.resolution input {
+  max-width: 5rem;
+  padding: 1rem 0.8rem;
+  font-size: 2rem;
+  color: #4d4d4d;
+}
+
+.resolution input:focus {
+  outline: none;
 }

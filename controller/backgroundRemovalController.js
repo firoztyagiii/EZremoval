@@ -95,3 +95,34 @@ exports.compressImage = async (req, res, next) => {
     console.log(err);
   }
 };
+
+exports.resizeImage = async (req, res, next) => {
+  const randomHashForImg = Image.hash(Date.now().toString());
+  const imgFileName = `${Date.now()}-${randomHashForImg}-${
+    req.file.originalname
+  }`;
+  const buffer = await sharp(req.file.buffer)
+    .resize({
+      width: +req.body.width,
+      height: +req.body.height,
+    })
+    .jpeg({ quality: 100 })
+    .toBuffer();
+
+  fs.writeFileSync(
+    path.join(__dirname, `../public/uploads/resized-${imgFileName}`),
+    buffer
+  );
+
+  const hash = Image.hash(req.file.originalname);
+
+  const img = await Image.create({
+    link: `${Date.now()}${hash}`,
+    path: `/uploads/resized-${imgFileName}`,
+  });
+
+  res.status(200).json({
+    status: "success",
+    path: img.link,
+  });
+};
