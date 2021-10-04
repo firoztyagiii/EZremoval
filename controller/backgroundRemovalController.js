@@ -45,11 +45,21 @@ exports.postImage = async (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-  res.render("index");
+  res.render("_layout", {
+    link: "index",
+    heroTitle: "Remove Image Background Fast",
+  });
 };
 
 exports.getCompress = (req, res, next) => {
-  res.render("compress");
+  res.render("_layout", {
+    link: "compress",
+    heroTitle: "Compress image in just 2 secs",
+  });
+};
+
+exports.getResize = (req, res, next) => {
+  res.render("_layout", { link: "resize", heroTitle: "Resize images" });
 };
 
 exports.compressImage = async (req, res, next) => {

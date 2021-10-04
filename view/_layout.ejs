@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EZremoval | Compress</title>
+    <title>EZremoval | Remove background</title>
     <link rel="stylesheet" href="./styles/style.css" />
     <link
       rel="stylesheet"
@@ -13,7 +13,6 @@
       crossorigin="anonymous"
     />
     <script src="./script/script.js" defer></script>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <div class="loading-bg loading-hidden">
@@ -27,7 +26,7 @@
     <div class="bg hidden">
       <ul class="bglist">
         <li class="bglist-item">
-          <a href="#">Resize</a>
+          <a href="/resize">Compress</a>
         </li>
         <li class="bglist-item">
           <a href="#">API</a>
@@ -52,7 +51,7 @@
               <a href="/compress" class="list-item__link">Compress</a>
             </li>
             <li class="list-item">
-              <a href="" class="list-item__link">API</a>
+              <a href="/resize" class="list-item__link">Resize</a>
             </li>
             <li class="list-item">
               <a href="" class="list-item__link">Features</a>
@@ -71,12 +70,22 @@
       </header>
       <section class="upload">
         <div class="left">
-          <img class="hero-img" src="./img/compress-image.png" alt="" />
+          <img class="hero-img" src="./img/hero-img.jpg" alt="" />
         </div>
         <div class="right">
-          <h1 class="hero-title">Compress Image</h1>
+          <h1 class="hero-title"><%= heroTitle %></h1>
           <p class="hero-desc">Automatically And <span>Free</span></p>
           <div class="upload-area">
+            <% if (link === "index") { %>
+            <form novalidate>
+              <label for="file-upload" class="custom-file-upload">
+                Select Image
+              </label>
+              <input id="file-upload" type="file" name="image" />
+              <p class="supported-format">Supported formats .jpg, png, jpeg</p>
+              <button class="upload-btn" type="button">Upload</button>
+            </form>
+            <% } else if (link === "compress") { %>
             <form class="form" novalidate>
               <label for="file-upload" class="custom-file-upload">
                 Select Image
@@ -87,6 +96,9 @@
               <p class="supported-format">Supported formats .jpg, png, jpeg</p>
               <button class="upload-compress-img" type="button">Upload</button>
             </form>
+            <% } else if ( link === "resize") { %>
+            <h1>resize page</h1>
+            <% } %>
           </div>
         </div>
       </section>
