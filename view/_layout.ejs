@@ -54,7 +54,7 @@
               <a href="/resize" class="list-item__link">Resize</a>
             </li>
             <li class="list-item">
-              <a href="" class="list-item__link">Features</a>
+              <a href="/convert" class="list-item__link">Convert</a>
             </li>
             <li class="list-item">
               <a href="" class="list-item__link">Login</a>
@@ -114,6 +114,26 @@
               </div>
               <p class="supported-format">Supported formats .jpg, png, jpeg</p>
               <button class="upload-resize-img" type="button">Upload</button>
+            </form>
+            <% } else if (link === "convert") {%>
+            <form class="form" novalidate>
+              <label for="file-upload" class="custom-file-upload">
+                Select Image
+              </label>
+              <input id="file-upload" type="file" name="image" />
+              <div class="convert">
+                <label for="jpeg" name="convert-img">JPEG</label>
+                <input id="jpeg" name="convert-img" type="radio" value="jpeg" />
+                <label for="webp" name="convert-img">WEBP</label>
+                <input
+                  type="radio"
+                  value="webp"
+                  name="convert-img"
+                  value="webp"
+                />
+              </div>
+              <p class="supported-format">Supported formats .jpg, png, jpeg</p>
+              <button class="upload-convert-img" type="button">Upload</button>
             </form>
             <% } %>
           </div>

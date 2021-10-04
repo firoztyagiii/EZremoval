@@ -10,6 +10,7 @@ const rangeText = document.querySelector(".range-text");
 
 const compressImageBtn = document.querySelector(".upload-compress-img");
 const resizeImageBtn = document.querySelector(".upload-resize-img");
+const convertImageBtn = document.querySelector(".upload-convert-img");
 
 const callAPI = async (form) => {
   try {
@@ -108,6 +109,32 @@ if (resizeImageBtn) {
       body: form,
     });
     const response = await res.json();
+    loadingBG.classList.add("loading-hidden");
+    linkBox.classList.remove("hide-link");
+    document.querySelector(
+      ".link"
+    ).value = `http://localhost:3000/v/${response.path}`;
+  });
+}
+
+if (convertImageBtn) {
+  convertImageBtn.addEventListener("click", async () => {
+    const typeToConvert = document.querySelector(
+      'input[name="convert-img"]:checked'
+    ).value;
+    const imgElement = document.getElementById("file-upload");
+    const img = imgElement.files[0];
+
+    const form = new FormData();
+    form.append("image", img);
+    form.append("convertTo", typeToConvert);
+    loadingBG.classList.remove("loading-hidden");
+    const res = await fetch("http://localhost:3000/convert", {
+      method: "POST",
+      body: form,
+    });
+    const response = await res.json();
+    console.log(response);
     loadingBG.classList.add("loading-hidden");
     linkBox.classList.remove("hide-link");
     document.querySelector(

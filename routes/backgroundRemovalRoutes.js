@@ -36,4 +36,9 @@ router
   .get(backgroundController.getResize)
   .post(compress.single("image"), backgroundController.resizeImage);
 
+router
+  .route("/convert")
+  .get(backgroundController.getConvert)
+  .post(compress.single("image"), backgroundController.convertImage);
+
 module.exports = router;

@@ -62,6 +62,10 @@ exports.getResize = (req, res, next) => {
   res.render("_layout", { link: "resize", heroTitle: "Resize images" });
 };
 
+exports.getConvert = (req, res, next) => {
+  res.render("_layout", { link: "convert", heroTitle: "Convert images" });
+};
+
 exports.compressImage = async (req, res, next) => {
   try {
     const quality = 100 - req.body.quality * 1;
@@ -119,6 +123,33 @@ exports.resizeImage = async (req, res, next) => {
   const img = await Image.create({
     link: `${Date.now()}${hash}`,
     path: `/uploads/resized-${imgFileName}`,
+  });
+
+  res.status(200).json({
+    status: "success",
+    path: img.link,
+  });
+};
+
+exports.convertImage = async (req, res, next) => {
+  const randomHashForImg = Image.hash(Date.now().toString());
+  const imgFileName = `${Date.now()}-${randomHashForImg}-${
+    req.file.originalname.split(".")[0]
+  }.${req.body.convertTo}`;
+  const buffer = await sharp(req.file.buffer)
+    .toFormat(req.body.convertTo)
+    .toBuffer();
+
+  fs.writeFileSync(
+    path.join(__dirname, `../public/uploads/converted-${imgFileName}`),
+    buffer
+  );
+
+  const hash = Image.hash(req.file.originalname);
+
+  const img = await Image.create({
+    link: `${Date.now()}${hash}`,
+    path: `/uploads/converted-${imgFileName}`,
   });
 
   res.status(200).json({
